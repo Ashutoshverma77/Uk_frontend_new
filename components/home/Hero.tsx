@@ -4,82 +4,151 @@ import BadgePill from "@/components/ui/BadgePill";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-cyan-50 via-white to-pharmacy-bg py-8 md:py-10">
+    <section className="relative isolate overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero.jpg"
+          alt="Pharmacy weight management banner"
+          fill
+          priority
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/75 to-slate-900/40" />
+      </div>
+
+      {/* Glow accents */}
+      <div className="pointer-events-none absolute -left-32 top-10 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl" />
+      <div className="pointer-events-none absolute right-[-6rem] top-40 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
+
       <Container>
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-600">
-
-        
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-          {/* Left panel */}
-          <div className="rounded-4xl bg-white p-5 shadow-soft-card md:p-8">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-              Pharmacy Express Weight Management
-            </p>
-            <h1 className="mt-3 text-balance text-2xl font-semibold text-slate-900 sm:text-3xl md:text-4xl">
-              Lose up to{" "}
-              <span className="text-emerald-500">22.5% of your body weight</span>{" "}
-              with clinically proven programmes.
-            </h1>
-            <p className="mt-3 text-sm text-slate-600">
-              Trusted by thousands of patients across the UK. Managed by UK-trained prescribers with ongoing support.
-            </p>
-
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                className="rounded-full bg-emerald-500 px-5 py-2 text-xs font-semibold text-white shadow-soft-card hover:bg-emerald-600"
-              >
-                Start consultation
-              </button>
-              <button
-                type="button"
-                className="rounded-full border border-slate-200 bg-white px-5 py-2 text-xs font-semibold text-slate-800 hover:border-cyan-400 hover:bg-cyan-50"
-              >
-                Reorder
-              </button>
-              <div className="flex items-center gap-2 text-[11px] text-slate-500">
-                <span className="inline-flex h-5 items-center rounded-full bg-emerald-50 px-2 text-[10px] font-medium text-emerald-700">
-                  ★ 4.9 Trustpilot
-                </span>
-                <span>Rated excellent by our patients</span>
-              </div>
-            </div>
-
-            <div className="mt-6 grid gap-3 text-[11px] text-slate-500 sm:grid-cols-3">
-              <div className="rounded-2xl bg-slate-50 px-3 py-2">
-                <p className="font-semibold text-slate-800">GPhC registered</p>
-                <p>UK pharmacy professionals</p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 px-3 py-2">
-                <p className="font-semibold text-slate-800">Clinically proven</p>
-                <p>NICE-guidance aligned</p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 px-3 py-2">
-                <p className="font-semibold text-slate-800">Trusted service</p>
-                <p>Discreet and secure</p>
-              </div>
-            </div>
+        <div className="relative py-10 md:py-20">
+          {/* Top pill */}
+          <div className="mb-6 flex flex-wrap items-center gap-3 text-[11px] text-slate-100/80">
+            <BadgePill>Pharmacy Express · Weight management clinic</BadgePill>
+            <span className="hidden md:inline-block">
+              UK-based, GPhC-registered pharmacy
+            </span>
           </div>
 
-          {/* Right illustration */}
-          <div className="flex items-stretch">
-            <div className="relative w-full overflow-hidden rounded-4xl bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 shadow-soft-card">
-              <Image
-                src="/images/hero-placeholder.jpg"
-                alt="Weight management consultation"
-                fill
-                className="object-cover opacity-90"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/10 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/90 p-3 text-[11px] shadow-lg backdrop-blur">
-                <p className="font-semibold text-slate-900">
-                  Pharmacy-led weight management
-                </p>
-                <p className="mt-1 text-slate-600">
-                  Appointments within 24 hours · Medication delivered discreetly.
-                </p>
+          {/* Main hero content */}
+          <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
+            {/* LEFT: headline + CTAs */}
+            <div className="max-w-xl text-slate-50">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-200">
+                Pharmacy Express Weight Management
+              </p>
+
+              <h1 className="mt-3 text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl lg:text-[2.9rem]">
+                Lose up to{" "}
+                <span className="text-emerald-400">
+                  22.5% of your body weight
+                </span>{" "}
+                with clinically proven programmes.
+              </h1>
+
+              <p className="mt-4 max-w-md text-sm text-slate-100/85 md:text-base">
+                Expert weight loss support from UK-trained prescribers, with
+                discreet delivery straight to your door.
+              </p>
+
+              {/* Primary CTAs */}
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  className="rounded-full bg-emerald-500 px-6 py-2.5 text-xs font-semibold text-white shadow-soft-card shadow-emerald-500/30 transition hover:-translate-y-0.5 hover:bg-emerald-600"
+                >
+                  Start consultation
+                </button>
+                <button
+                  type="button"
+                  className="rounded-full border border-cyan-200/70 bg-white/90 px-6 py-2.5 text-xs font-semibold text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-400 hover:bg-white"
+                >
+                  Reorder
+                </button>
+                <div className="flex items-center gap-2 text-[11px] text-cyan-100/90">
+                  <span className="inline-flex h-5 items-center rounded-full bg-emerald-500/20 px-2 text-[10px] font-medium text-emerald-200">
+                    ★ 4.9 Trustpilot
+                  </span>
+                  <span>Rated excellent by our patients</span>
+                </div>
+              </div>
+
+              {/* Key reassurance chips */}
+              <div className="mt-7 flex flex-wrap gap-2 text-[11px] text-slate-100/90">
+                <span className="inline-flex items-center rounded-full bg-slate-950/60 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
+                  GPhC registered · UK professionals
+                </span>
+                <span className="inline-flex items-center rounded-full bg-slate-950/60 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
+                  Clinically proven treatments
+                </span>
+                <span className="inline-flex items-center rounded-full bg-slate-950/60 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
+                  Discreet & secure service
+                </span>
+              </div>
+            </div>
+
+            {/* RIGHT: glass card – simplified */}
+            <div className="flex justify-end">
+              <div className="relative w-full max-w-md overflow-hidden rounded-4xl bg-white/10 p-4 text-[11px] text-slate-100 shadow-soft-card shadow-slate-950/40 ring-1 ring-white/15 backdrop-blur-2xl md:p-5">
+                {/* glass glow */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/35 via-white/10 to-emerald-300/15 opacity-90" />
+
+                <div className="relative space-y-4">
+                  {/* Header row */}
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="rounded-full bg-slate-950/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-50/90 ring-1 ring-white/15">
+                      Pharmacy-led programme
+                    </span>
+                    <span className="rounded-full bg-emerald-400/20 px-2 py-1 text-[10px] font-semibold text-emerald-100 ring-1 ring-emerald-300/50">
+                      Licensed clinic
+                    </span>
+                  </div>
+
+                  {/* One-line description */}
+                  <p className="text-[12px] font-medium text-slate-50 md:text-sm">
+                    Personalised weight management, monitored by UK-registered
+                    pharmacists.
+                  </p>
+
+                  {/* Stats row */}
+                  <div className="grid grid-cols-3 gap-2 text-center text-[10px] text-slate-100/85">
+                    <div className="rounded-2xl bg-white/10 px-2 py-2 ring-1 ring-white/15 backdrop-blur-sm">
+                      <p className="text-sm font-semibold text-white">
+                        10k+
+                      </p>
+                      <p>Patients</p>
+                    </div>
+                    <div className="rounded-2xl bg-white/10 px-2 py-2 ring-1 ring-white/15 backdrop-blur-sm">
+                      <p className="text-sm font-semibold text-white">
+                        4.9
+                      </p>
+                      <p>Rating</p>
+                    </div>
+                    <div className="rounded-2xl bg-white/10 px-2 py-2 ring-1 ring-white/15 backdrop-blur-sm">
+                      <p className="text-sm font-semibold text-white">
+                        UK
+                      </p>
+                      <p>Nationwide</p>
+                    </div>
+                  </div>
+
+                  {/* Tiny feature chips instead of full sentences */}
+                  <div className="flex flex-wrap gap-2 text-[10px] text-slate-100/85">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-950/40 px-2.5 py-1 ring-1 ring-white/10 backdrop-blur-sm">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                      24h appointments
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-950/40 px-2.5 py-1 ring-1 ring-white/10 backdrop-blur-sm">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                      Discreet delivery
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-950/40 px-2.5 py-1 ring-1 ring-white/10 backdrop-blur-sm">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                      Ongoing review
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
